@@ -1,12 +1,23 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 
 function App() {
+  const [darkMode, setDarkMode] = useState(false);
+
+  // Toggle dark mode by adding/removing class on <body>
+  useEffect(() => {
+    document.body.className = darkMode ? 'dark' : '';
+  }, [darkMode]);
+
   return (
     <div className="App">
+      <button className="dark-toggle" onClick={() => setDarkMode(!darkMode)}>
+        {darkMode ? '☀️ Light Mode' : '🌙 Dark Mode'}
+      </button>
+
       <h1>Koti Reddy Seelam</h1>
       <h2>Software Developer | React & Firebase Enthusiast</h2>
-      <h3 className="location">Calgary, Canada</h3>
+      <h3 className="location">📍 Calgary, Canada</h3>
 
       <section>
         <h3>About Me</h3>
